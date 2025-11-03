@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kalkulator Sederhana Sulthan hifdzu</title>
+</head>
+<body>
+
+  <h2>Kalkulator Sederhana</h2>
+
+  <input type="text" id="input1" placeholder="Angka Pertama" />
+  <input type="text" id="input2" placeholder="Angka Kedua" />
+
+  <br /><br />
+
+  <button onclick="hitung('+')">+</button>
+  <button onclick="hitung('-')">-</button>
+  <button onclick="hitung('*')">*</button>
+  <button onclick="hitung('/')">/</button>
+
+  <h3>Hasilnya: <span id="hasil"></span></h3>
+
+  <script>
+    function hitung(operator) {
+      const a = parseFloat(document.getElementById('input1').value);
+      const b = parseFloat(document.getElementById('input2').value);
+      let hasil;
+
+      if (isNaN(a) || isNaN(b)) {
+        hasil = "Masukkan angka valid!";
+      } else {
+        if (operator === '+') hasil = a + b;
+        else if (operator === '-') hasil = a - b;
+        else if (operator === '*') hasil = a * b;
+        else if (operator === '/') {
+          if (b === 0) hasil = "Tidak bisa di bagi 0!";
+          else hasil = a / b;
+        }
+      }
+
+      document.getElementById('hasil').textContent = hasil;
+    }
+  </script>
+
+</body>
+</html>
